@@ -1823,7 +1823,7 @@ namespace internal
                 gInput.cursorIndex = 0;
             }
 		} else if (key == KEY_ARROW_RIGHT) {
-            if (gInput.cursorIndex < theContent.length()) {
+            if (gInput.cursorIndex < (int)theContent.length()) {
                 gInput.cursorIndex++;
             }
 
@@ -1845,7 +1845,7 @@ namespace internal
                 gInput.contentStartIndex--;
                 gInput.contentStartIndex = std::max(gInput.contentStartIndex, 0);
             }
-        } else if (key == KEY_DELETE && gInput.cursorIndex >= 0 && gInput.cursorIndex < theContent.length()) {
+        } else if (key == KEY_DELETE && gInput.cursorIndex >= 0 && gInput.cursorIndex < (int)theContent.length()) {
 			theContent.erase(gInput.cursorIndex, 1);
 
         } else if (key == KEY_HOME) {
@@ -1864,7 +1864,7 @@ namespace internal
     }
 
     void inputUpdateCursorBlink() {
-        if (gInput.cursorBlinkCounter++ >= INTPUT_CURSOR_BLINK_SLOWNESS * 2) {
+        if (gInput.cursorBlinkCounter++ >= (int)INTPUT_CURSOR_BLINK_SLOWNESS * 2) {
             gInput.cursorBlinkCounter = 0;
         }
     }
@@ -2371,7 +2371,7 @@ namespace render
         int aContentStartIndex = theFocused ? internal::gInput.contentStartIndex : 0;
         int aContentSubstrCount = theRect.width / (int)((theFontScale * 18) + 1);
 
-        cv::String aText = theContent.substr(aContentStartIndex > theContent.length() ? theContent.length() - 1 : aContentStartIndex, aContentSubstrCount);
+        cv::String aText = theContent.substr(aContentStartIndex > (int)theContent.length() ? theContent.length() - 1 : aContentStartIndex, aContentSubstrCount);
 
 		// Outline
 		cv::rectangle(theBlock.where, theRect, theIArea == OVER && !theFocused ? cv::Scalar(0x90, 0x90, 0x90) : cv::Scalar(0x63, 0x63, 0x63));
@@ -2391,7 +2391,7 @@ namespace render
         cv::Point aPos(theRect.x + 2, theRect.y + aTextSize.height + aPadding - 1);
         render::text(theBlock, aText, aPos, theFontScale, theIArea == OVER || theFocused ? 0xC1C1C1 : 0xA1A1A1);
 
-        bool aShouldRenderCursor = internal::gInput.cursorBlinkCounter < INTPUT_CURSOR_BLINK_SLOWNESS;
+        bool aShouldRenderCursor = internal::gInput.cursorBlinkCounter < (int)INTPUT_CURSOR_BLINK_SLOWNESS;
 
         // Draw cursor
         if (theFocused && aShouldRenderCursor) {

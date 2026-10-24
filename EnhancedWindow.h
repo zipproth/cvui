@@ -6,7 +6,7 @@ This class enhances the window component of cvui by making it movable and minimi
 
 Authors:
 	ShengYu - https://github.com/shengyu7697
-	Amaury Bréhéret - https://github.com/abreheret
+	Amaury BrÃ©hÃ©ret - https://github.com/abreheret
 
 Contributions:
 	Fernando Bevilacqua <dovyski@gmail.com>
