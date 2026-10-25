@@ -1191,7 +1191,7 @@ const unsigned int TRACKBAR_HIDE_LABELS = 32;
 const unsigned int INTPUT_CURSOR_BLINK_SLOWNESS = 10;
 
 // Constants regarding keyboard codes
-const unsigned int KEY_NONE = -1;
+const unsigned int KEY_NONE = (unsigned int)-1;
 const unsigned int KEY_ARROW_LEFT = 2424832;
 const unsigned int KEY_ARROW_RIGHT = 2555904;
 const unsigned int KEY_ARROW_UP = 2490368;
