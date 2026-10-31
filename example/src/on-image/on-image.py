@@ -80,9 +80,9 @@ def main():
 
 		if (rgbModified):
 			b,g,r = cv2.split(lena)
-			b = (b * rgb[2][0]).astype(np.float)
-			g = (g * rgb[1][0]).astype(np.float)
-			r = (r * rgb[0][0]).astype(np.float)
+			b = (b * rgb[2][0]).astype(float)
+			g = (g * rgb[1][0]).astype(float)
+			r = (r * rgb[0][0]).astype(float)
 			doubleBuffer = cv2.merge((b,g,r), doubleBuffer)
 		cvui.endColumn()
 
@@ -107,9 +107,9 @@ def main():
 		if hsvModified:
 			hsvMat = cv2.cvtColor(lena, cv2.COLOR_BGR2HSV)
 			h,s,v = cv2.split(hsvMat)
-			h = (h * hsv[0][0]).astype(np.float)
-			s = (s * hsv[1][0]).astype(np.float)
-			v = (v * hsv[2][0]).astype(np.float)
+			h = (h * hsv[0][0]).astype(float)
+			s = (s * hsv[1][0]).astype(float)
+			v = (v * hsv[2][0]).astype(float)
 			hsvMat = cv2.merge((h,s,v), hsvMat)
 			hsvMat = np.uint8(hsvMat)
 			doubleBuffer = cv2.cvtColor(hsvMat, cv2.COLOR_HSV2BGR)
