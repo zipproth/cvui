@@ -2036,7 +2036,7 @@ namespace internal
 
 	double counter(cvui_block_t& theBlock, int theX, int theY, double *theValue, double theStep, const char *theFormat, double theFontScale, unsigned int theInsideColor) {
 		const double scale = theFontScale / DEFAULT_FONT_SCALE;
-		cv::Rect aContentArea(std::lround(theX + 22 * scale), theY, 48, std::lround(22 * scale));
+		cv::Rect aContentArea(std::lround(theX + 22 * scale), theY, std::lround(48 * scale), std::lround(22 * scale));
 
 		if (internal::button(theBlock, theX, theY, std::lround(22 * scale), std::lround(22 * scale), "-", false, theFontScale, theInsideColor)) {
 			*theValue -= theStep;
